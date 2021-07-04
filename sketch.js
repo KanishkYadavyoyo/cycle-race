@@ -89,10 +89,7 @@ function draw() {
   if(keyDown("space")) {
     cycleBell.play();
   }
-  if(keyDown("R")){
-    //write condition for calling reset( )
-    reset();
-   }
+  
   
   //creating continous opponent players
   var select_oppPlayer = Math.round(random(1,3));
@@ -129,7 +126,7 @@ function draw() {
     gameOver.visible = true;
     //Add code to show restart game instrution in text here
     textSize(20);
-   text("click R to restart the game",200,100);
+   text("click r to restart the game",200,100);
   
     path.velocityX = 0;
     mainCyclist.velocityY = 0;
@@ -146,7 +143,10 @@ function draw() {
 
    
 }
-
+if(keyDown("r")){
+  //write condition for calling reset( )
+  reset();
+ }
 }
 
 function pinkCyclists(){
@@ -183,11 +183,10 @@ function redCyclists(){
 function reset(){
  gameState = PLAY;
  gameOver.visible = false;
- restart.visible = false;
  pinkCG  .destroyEach();
  yellowCG.destroyEach();
  redCG.destroyEach();
- trex.changeAnimation("running",trex_running);
+ mainCyclist.addAnimation("SahilRunning",mainRacerImg1);
  score = 0;
 }
 
